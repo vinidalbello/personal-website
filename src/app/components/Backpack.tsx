@@ -7,13 +7,13 @@ export const Backpack = () => {
   ];
 
   return (
-    <section id="backpack" className="bg-gray-800 p-6 rounded-lg shadow-lg">
+    <section id="backpack" className="bg-gray-800 p-6 rounded-lg shadow-lg space-y-4">
       <h2 className="text-3xl font-bold mb-4">Backpack</h2>
       <div className="grid grid-cols-2 gap-4">
         {skills.map((skill) => (
           <div
             key={skill.name}
-            className="bg-gray-700 p-4 rounded-lg transition-all duration-200 hover:bg-gray-600 hover:shadow-md"
+            className="bg-gray-700 p-4 rounded-lg hover:bg-gray-600 transition"
           >
             <h3 className="text-xl font-semibold">{skill.name}</h3>
             <p className="text-gray-400">{skill.description}</p>
