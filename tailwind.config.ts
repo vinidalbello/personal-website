@@ -11,6 +11,17 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        paleta: {
+          lightestBrown: "#ece0d1",
+          lightBrown: "#dbc1ac",
+          mediumBrown: "#967259",
+          darkBrown: "#634832",
+          darkestBrown: "#38220f"
+        }
+      },
+      fontFamily: {
+        sans: ['var(--font-poppins)', 'sans-serif'],
+        title: ['var(--font-raleway)', 'serif'],
       },
     },
   },
