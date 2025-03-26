@@ -1,8 +1,9 @@
 import "./styles/globals.css";
-import { Header } from "./components/Header";
+import { poppins, raleway } from "./fonts";
+
 export const metadata = {
-  title: "Survivor Log: Vinicius Dal Bello",
-  description: "Portfolio in the style of a zombie apocalypse survivor log.",
+  title: "Vinicius Dal Bello - Portfolio",
+  description: "Portfolio pessoal de Vinicius Dal Bello, desenvolvedor Full Stack.",
 };
 
 export default function RootLayout({
@@ -11,9 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-900 text-gray-200 font-mono min-h-screen">
-        <Header />
+    <html lang="en" className={`${poppins.variable} ${raleway.variable}`}>
+      <body className="bg-paleta-lightestBrown text-paleta-darkestBrown font-sans min-h-screen">
         <main className="p-4">{children}</main>
       </body>
     </html>
