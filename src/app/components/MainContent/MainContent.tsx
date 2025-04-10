@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { ProjectItem } from "../types/github";
+import { ProjectItem } from "../../types/github";
+import { fallbackProjects, games, books } from './staticData';
 
-type ContentTab = "projects" | "posts" | "articles";
+type ContentTab = "projects" | "games" | "books";
 
 export const MainContent = () => {
   const [activeTab, setActiveTab] = useState<ContentTab>("projects");
@@ -12,73 +13,6 @@ export const MainContent = () => {
   const tabRefs = useRef<{ [key in ContentTab]?: HTMLButtonElement | null }>({});
   const [projects, setProjects] = useState<ProjectItem[]>([]);
   const [loadingProjects, setLoadingProjects] = useState(true);
-
-  const posts = [
-    {
-      id: 1,
-      title: "Building Scalable Web Applications",
-      date: "2023-10-15",
-      excerpt: "Learn how to build web applications that can handle millions of users.",
-    },
-    {
-      id: 2,
-      title: "Optimizing React Performance",
-      date: "2023-09-22",
-      excerpt: "Tips and tricks for making your React applications blazing fast.",
-    },
-  ];
-
-  const articles = [
-    {
-      id: 1,
-      title: "The Future of Web Development",
-      date: "2023-11-05",
-      publication: "Dev.to",
-      url: "https://dev.to/article/123",
-    },
-    {
-      id: 2,
-      title: "Understanding TypeScript Generics",
-      date: "2023-08-18",
-      publication: "Medium",
-      url: "https://medium.com/article/456",
-    },
-  ];
-
-  const fallbackProjects: ProjectItem[] = [
-    {
-      id: 1,
-      title: "Customer Order Manager",
-      description: "A comprehensive system for customer registration and order management. Allows businesses to track customers, manage product orders, and maintain inventory records efficiently.",
-      tech: ["React", "Node.js", "MongoDB", "Express"],
-      starred: true,
-      url: "https://github.com/vinidalbello/customer-order-manager"
-    },
-    {
-      id: 2,
-      title: "Portfolio Website",
-      description: "Personal portfolio website built with Next.js and Tailwind CSS.",
-      tech: ["Next.js", "TypeScript", "Tailwind CSS"],
-      starred: true,
-      url: "https://github.com/vinidalbello/portfolio"
-    },
-    {
-      id: 3,
-      title: "E-commerce Platform",
-      description: "A complete e-commerce solution with product management and payment processing.",
-      tech: ["React", "Node.js", "PostgreSQL"],
-      starred: true,
-      url: "https://github.com/vinidalbello/ecommerce"
-    },
-    {
-      id: 4,
-      title: "Task Management App",
-      description: "A simple but powerful app to manage daily tasks and increase productivity.",
-      tech: ["Vue.js", "Firebase"],
-      starred: false,
-      url: "https://github.com/vinidalbello/tasks"
-    },
-  ];
   
   useEffect(() => {
     async function fetchProjects() {
@@ -119,7 +53,7 @@ export const MainContent = () => {
   };
 
   const getAnimationClass = () => {
-    const tabOrder: ContentTab[] = ["projects", "posts", "articles"];
+    const tabOrder: ContentTab[] = ["projects", "games", "books"];
     const prevIndex = prevTab ? tabOrder.indexOf(prevTab) : -1;
     const activeIndex = tabOrder.indexOf(activeTab);
 
@@ -183,35 +117,53 @@ export const MainContent = () => {
             )}
           </div>
         );
-      case "posts":
+      case "games":
         return (
           <div className={`space-y-4 ${animationClass}`}>
-            {posts.map((post) => (
-              <div key={post.id} className="bg-paleta-lightBrown p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <h3 className="text-xl font-semibold text-paleta-darkBrown font-title mb-1">{post.title}</h3>
-                <p className="text-paleta-mediumBrown text-sm mb-2">{post.date}</p>
-                <p className="text-paleta-darkBrown">{post.excerpt}</p>
+            {games.map((game) => (
+              <div key={game.id} className="bg-paleta-lightBrown p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-semibold text-paleta-darkBrown font-title">{game.title}</h3>
+                  <div className="bg-paleta-darkBrown text-paleta-lightestBrown px-2 py-1 rounded-md font-bold">
+                    {game.rating.toFixed(1)}
+                  </div>
+                </div>
+                <p className="text-paleta-mediumBrown text-sm flex items-center flex-wrap gap-2">
+                  <span>{game.producer}</span>
+                </p>
+                {game.imageUrl && (
+                  <div className="mt-3 w-full h-48 bg-paleta-lightestBrown rounded-md overflow-hidden flex justify-center">
+                    <img 
+                      src={game.imageUrl} 
+                      alt={game.title}
+                      className="h-full object-contain"
+                    />
+                  </div>
+                )}
               </div>
             ))}
           </div>
         );
-      case "articles":
+      case "books":
         return (
           <div className={`space-y-4 ${animationClass}`}>
-            {articles.map((article) => (
-              <div key={article.id} className="bg-paleta-lightBrown p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-                <a 
-                  href={article.url} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="text-xl font-semibold text-paleta-darkBrown hover:text-paleta-darkestBrown hover:underline mb-1 block font-title"
-                >
-                  {article.title}
-                </a>
-                <p className="text-paleta-mediumBrown text-sm flex items-center gap-2">
-                  <span>{article.date}</span>
-                  <span>•</span>
-                  <span>{article.publication}</span>
+            {books.map((book) => (
+              <div key={book.id} className="bg-paleta-lightBrown p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                <div className="flex justify-between items-start mb-2">
+                  <a 
+                    href={book.url} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-xl font-semibold text-paleta-darkBrown hover:text-paleta-darkestBrown hover:underline font-title"
+                  >
+                    {book.title}
+                  </a>
+                  <div className="bg-paleta-darkBrown text-paleta-lightestBrown px-2 py-1 rounded-md font-bold">
+                    {book.rating.toFixed(1)}
+                  </div>
+                </div>
+                <p className="text-paleta-mediumBrown text-sm flex items-center flex-wrap gap-2">
+                  <span>{book.author}</span>
                 </p>
               </div>
             ))}
@@ -237,38 +189,27 @@ export const MainContent = () => {
           Projects
         </button>
         <button
-          ref={(el) => { tabRefs.current.posts = el; }}
-          onClick={() => handleTabChange("posts")}
+          ref={(el) => { tabRefs.current.games = el; }}
+          onClick={() => handleTabChange("games")}
           className={`px-4 py-2 font-medium transition-transform duration-200 hover:scale-105 ${
-            activeTab === "posts"
+            activeTab === "games"
               ? "text-paleta-darkBrown"
               : "text-paleta-mediumBrown hover:text-paleta-darkBrown"
           }`}
         >
-          Posts
+          Games
         </button>
         <button
-          ref={(el) => { tabRefs.current.articles = el; }}
-          onClick={() => handleTabChange("articles")}
+          ref={(el) => { tabRefs.current.books = el; }}
+          onClick={() => handleTabChange("books")}
           className={`px-4 py-2 font-medium transition-transform duration-200 hover:scale-105 ${
-            activeTab === "articles"
+            activeTab === "books"
               ? "text-paleta-darkBrown"
               : "text-paleta-mediumBrown hover:text-paleta-darkBrown"
           }`}
         >
-          Articles
+          Books
         </button>
-        
-        {/* Botão de gerenciamento de projetos (só visível quando projetos está ativo) */}
-        {activeTab === "projects" && (
-          <a
-            href="/admin/projects"
-            className="ml-auto px-2 py-1 text-xs text-paleta-mediumBrown hover:text-paleta-darkBrown transition-colors"
-            title="Gerenciar projetos"
-          >
-            <span className="hidden sm:inline">Gerenciar</span> ⚙️
-          </a>
-        )}
         
         <div 
           className="absolute bottom-0 h-0.5 bg-paleta-darkBrown tab-indicator"

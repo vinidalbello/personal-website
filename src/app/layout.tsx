@@ -3,7 +3,7 @@ import { poppins, raleway } from "./fonts";
 
 export const metadata = {
   title: "Vinicius Dal Bello - Portfolio",
-  description: "Portfolio pessoal de Vinicius Dal Bello, desenvolvedor Full Stack.",
+  description: "Portfolio pessoal de Vinicius Dal Bello, Full Stack Developer.",
 };
 
 export default function RootLayout({

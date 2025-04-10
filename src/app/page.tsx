@@ -1,6 +1,6 @@
-import { MainContent } from "./components/MainContent";
-import { LeftSidebar } from "./components/LeftSidebar";
-import { RightSidebar } from "./components/RightSidebar";
+import { MainContent } from "./components/MainContent/MainContent";
+import { LeftSidebar } from "./components/LeftSidebar/LeftSidebar";
+import { RightSidebar } from "./components/RightSidebar/RightSidebar";
 
 export default function Home() {
   return (

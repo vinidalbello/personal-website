@@ -4,22 +4,18 @@ import { GITHUB_CONFIG } from '../config/github';
 const GITHUB_USERNAME = GITHUB_CONFIG.username; 
 const PORTFOLIO_TOPIC = 'portfolio';
 
-// Cache para as chamadas de API (básico, só para demonstração)
 const apiCache: {
   repos?: {data: GitHubRepository[], timestamp: number},
   activities?: {data: ActivityItem[], timestamp: number}
 } = {};
 
-// Cache expira em 10 minutos
 const CACHE_EXPIRY = 10 * 60 * 1000; // 10 minutos em milissegundos
 
-// Função auxiliar para criar o cabeçalho de autenticação
 function getAuthHeaders() {
   const headers: HeadersInit = {
     'Accept': 'application/vnd.github.v3+json',
   };
   
-  // Adiciona o token apenas se estiver configurado
   if (GITHUB_CONFIG.token && GITHUB_CONFIG.token !== 'YOUR_PERSONAL_ACCESS_TOKEN') {
     headers['Authorization'] = `token ${GITHUB_CONFIG.token}`;
   }
@@ -41,15 +37,10 @@ interface GithubPushEvent {
   created_at: string;
 }
 
-/**
- * Busca os repositórios do usuário do GitHub que possuem a tag "portfolio"
- */
 export async function fetchRepositories(): Promise<GitHubRepository[]> {
   try {
-    // Verifica se há dados em cache e se ainda são válidos
     const now = Date.now();
     if (apiCache.repos && (now - apiCache.repos.timestamp < CACHE_EXPIRY)) {
-      console.log('Using cached repositories data');
       return apiCache.repos.data;
     }
     
@@ -63,12 +54,10 @@ export async function fetchRepositories(): Promise<GitHubRepository[]> {
     
     const allRepos = await response.json();
     
-    // Filtra apenas os repositórios com o tópico "portfolio"
     const portfolioRepos = allRepos.filter(
       (repo: GitHubRepository) => repo.topics && repo.topics.includes(PORTFOLIO_TOPIC)
     );
     
-    // Salva no cache
     apiCache.repos = {
       data: portfolioRepos,
       timestamp: now
@@ -81,15 +70,10 @@ export async function fetchRepositories(): Promise<GitHubRepository[]> {
   }
 }
 
-/**
- * Busca os commits recentes do usuário do GitHub
- */
 export async function fetchUserEvents(): Promise<ActivityItem[]> {
   try {
-    // Verifica se há dados em cache e se ainda são válidos
     const now = Date.now();
     if (apiCache.activities && (now - apiCache.activities.timestamp < CACHE_EXPIRY)) {
-      console.log('Using cached activities data');
       return apiCache.activities.data;
     }
     
@@ -103,14 +87,11 @@ export async function fetchUserEvents(): Promise<ActivityItem[]> {
     
     const events = await response.json() as GithubPushEvent[];
     
-    // Filtra apenas eventos de push (commits)
     const pushEvents = events.filter((event) => event.type === 'PushEvent');
     
-    // Converte para o formato de atividade
     const activities: ActivityItem[] = [];
     
     for (const event of pushEvents) {
-      // Pega apenas o primeiro commit de cada evento push
       if (event.payload.commits && event.payload.commits.length > 0) {
         const commit = event.payload.commits[0];
         activities.push({
@@ -123,9 +104,8 @@ export async function fetchUserEvents(): Promise<ActivityItem[]> {
       }
     }
     
-    const result = activities.slice(0, 5); // Retorna apenas os 5 mais recentes
+    const result = activities.slice(0, 5);
     
-    // Salva no cache
     apiCache.activities = {
       data: result,
       timestamp: now
@@ -138,11 +118,7 @@ export async function fetchUserEvents(): Promise<ActivityItem[]> {
   }
 }
 
-/**
- * Converte repositórios do GitHub para o formato de projetos do site
- */
 export function convertReposToProjects(repos: GitHubRepository[]): ProjectItem[] {
-  // Converte para o formato de projetos
   return repos
     .map(repo => ({
       id: repo.id,
@@ -152,12 +128,10 @@ export function convertReposToProjects(repos: GitHubRepository[]): ProjectItem[]
       starred: repo.stargazers_count > 0,
       url: repo.html_url
     }))
-    .slice(0, 10); // Limita aos 10 primeiros projetos
+    .slice(0, 10);
 }
 
-// Funções auxiliares
 function formatCommitMessage(message: string): string {
-  // Trunca a mensagem se for muito longa e adiciona ...
   return message.length > 50 ? message.substring(0, 47) + '...' : message;
 }
 
@@ -174,7 +148,6 @@ function formatDate(date: Date): string {
 }
 
 function formatRepoName(repoName: string): string {
-  // Converte nomes com hífen ou underline para formato título
   return repoName
     .replace(/-/g, ' ')
     .replace(/_/g, ' ')
