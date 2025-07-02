@@ -18,8 +18,7 @@ export const skillCategoryNames = [
     skillNames: [
       { name: "TypeScript", color: "text-blue-500" },
       { name: "JavaScript", color: "text-yellow-500" },
-      { name: "PHP", color: "text-indigo-600" },
-      { name: "Elixir", color: "text-purple-600" }
+      { name: "C#", color: "text-purple-600" }
     ]
   },
   {
@@ -29,8 +28,8 @@ export const skillCategoryNames = [
       { name: "React.js", color: "text-blue-400" },
       { name: "Next.js", color: "text-gray-900" },
       { name: "Express.js", color: "text-gray-800" },
-      { name: "Phoenix", color: "text-orange-600" },
-      { name: "Svelte", color: "text-red-500" }
+      { name: "Svelte", color: "text-red-500" },
+      { name: "ASP.NET Core", color: "text-purple-600" }
     ]
   },
   {

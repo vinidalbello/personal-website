@@ -21,7 +21,7 @@ export const fallbackProjects: ProjectItem[] = [
     id: 1,
     title: "Customer Order Manager",
     description: "A comprehensive system for customer registration and order management. Allows businesses to track customers, manage product orders, and maintain inventory records efficiently.",
-    tech: ["React", "Node.js", "MongoDB", "Express"],
+    tech: ["SvelteKit", "TypeScript", "PostgreSQL"],
     starred: true,
     url: "https://github.com/vinidalbello/customer-order-manager"
   },
@@ -31,23 +31,15 @@ export const fallbackProjects: ProjectItem[] = [
     description: "Personal portfolio website built with Next.js and Tailwind CSS.",
     tech: ["Next.js", "TypeScript", "Tailwind CSS"],
     starred: true,
-    url: "https://github.com/vinidalbello/portfolio"
+    url: "https://github.com/vinidalbello/personal-website"
   },
   {
     id: 3,
-    title: "E-commerce Platform",
-    description: "A complete e-commerce solution with product management and payment processing.",
-    tech: ["React", "Node.js", "PostgreSQL"],
-    starred: true,
-    url: "https://github.com/vinidalbello/ecommerce"
-  },
-  {
-    id: 4,
-    title: "Task Management App",
-    description: "A simple but powerful app to manage daily tasks and increase productivity.",
-    tech: ["Vue.js", "Firebase"],
+    title: "Table Management API",
+    description: "A RESTful API for managing tables in a restaurant. Allows for easy table creation, reservation, and management.",
+    tech: ["C#", "ASP.NET Core", "Entity Framework Core", "PostgreSQL"],
     starred: false,
-    url: "https://github.com/vinidalbello/tasks"
+    url: "https://github.com/vinidalbello/table-management-api"
   },
 ];
 
