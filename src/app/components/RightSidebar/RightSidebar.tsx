@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react';
 import { ActivityItem } from '../../types/github';
 import { FcFolder, FcOpenedFolder } from 'react-icons/fc';
-import { SiTypescript, SiJavascript, SiPhp, SiElixir } from 'react-icons/si';
-import { SiReact, SiNextdotjs, SiExpress, SiPhoenixframework, SiSvelte } from 'react-icons/si';
+import { SiTypescript, SiJavascript, SiDotnet } from 'react-icons/si';
+import { SiReact, SiNextdotjs, SiExpress, SiSvelte } from 'react-icons/si';
+import { TbBrandCSharp } from "react-icons/tb";
 import { SiDocker, SiFirebase, SiGit } from 'react-icons/si';
 import { SiPostgresql, SiMongodb, SiMysql } from 'react-icons/si';
 import { skillCategoryNames, fallbackActivities, achievements, SkillCategory } from './staticData';
@@ -13,18 +14,16 @@ export const RightSidebar = () => {
   const [activities, setActivities] = useState<ActivityItem[]>([]);
   const [loading, setLoading] = useState(true);
   
-  // Mapear os nomes das skills para os componentes de ícones
   const getIconForSkill = (skillName: string, colorClass: string) => {
     switch(skillName) {
       case 'TypeScript': return <SiTypescript className={colorClass} />;
       case 'JavaScript': return <SiJavascript className={colorClass} />;
-      case 'PHP': return <SiPhp className={colorClass} />;
-      case 'Elixir': return <SiElixir className={colorClass} />;
+      case 'C#': return <TbBrandCSharp className={colorClass} />;
       case 'React.js': return <SiReact className={colorClass} />;
       case 'Next.js': return <SiNextdotjs className={colorClass} />;
       case 'Express.js': return <SiExpress className={colorClass} />;
-      case 'Phoenix': return <SiPhoenixframework className={colorClass} />;
       case 'Svelte': return <SiSvelte className={colorClass} />;
+      case 'ASP.NET Core': return <SiDotnet className={colorClass} />;
       case 'Docker': return <SiDocker className={colorClass} />;
       case 'Firebase': return <SiFirebase className={colorClass} />;
       case 'Git': return <SiGit className={colorClass} />;
@@ -35,7 +34,6 @@ export const RightSidebar = () => {
     }
   };
   
-  // Converter skillCategoryNames em skillCategories com ícones JSX
   const initialSkillCategories: SkillCategory[] = skillCategoryNames.map(category => ({
     name: category.name,
     isOpen: category.isOpen,
