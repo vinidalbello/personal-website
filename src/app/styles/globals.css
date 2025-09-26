@@ -42,16 +42,25 @@
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Theme variables */
+:root[data-theme='dark'] {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --nearBlack: #1a1a1a;
+  --darkGray: #262626;
+  --accentGreen: #22c55e;
+  --white: #ffffff;
+  --lightGray: #e5e5e5;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root[data-theme='light'] {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --nearBlack: #ffffff;
+  --darkGray: #e5e5e5;
+  --accentGreen: #22c55e;
+  --white: #0a0a0a;
+  --lightGray: #262626;
 }
 
 body {
