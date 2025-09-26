@@ -12,11 +12,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
         paleta: {
-          lightestBrown: "#ece0d1",
-          lightBrown: "#dbc1ac",
-          mediumBrown: "#967259",
-          darkBrown: "#634832",
-          darkestBrown: "#38220f"
+          nearBlack: "var(--nearBlack)",
+          darkGray: "var(--darkGray)",
+          accentGreen: "var(--accentGreen)",
+          white: "var(--white)",
+          lightGray: "var(--lightGray)"
         }
       },
       fontFamily: {
