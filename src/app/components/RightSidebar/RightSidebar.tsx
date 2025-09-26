@@ -9,6 +9,7 @@ import { SiDocker, SiFirebase, SiGit, SiPostgresql, SiMongodb, SiAmazons3, SiC }
 import { skillCategoryNames, achievements, SkillCategory } from './staticData';
 import { Skills } from '../../types/enums';
 
+
 export const RightSidebar = ({ activities }: { activities: ActivityItem[] }) => {
   
   const getIconForSkill = (skillName: string, colorClass: string) => {
