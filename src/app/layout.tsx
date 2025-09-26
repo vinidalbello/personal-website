@@ -1,5 +1,6 @@
 import "./styles/globals.css";
 import { poppins, raleway } from "./fonts";
+import { ThemeToggle } from "./components/ThemeToggle/ThemeToggle";
 
 export const metadata = {
   title: "Vinicius Dal Bello - Portfolio",
@@ -12,8 +13,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${raleway.variable}`}>
-      <body className="bg-paleta-lightestBrown text-paleta-darkestBrown font-sans min-h-screen">
+    <html lang="en" data-theme="dark" className={`${poppins.variable} ${raleway.variable}`}>
+      <body className="bg-paleta-nearBlack text-paleta-lightGray font-sans min-h-screen">
+        <ThemeToggle />
         <main className="p-4">{children}</main>
       </body>
     </html>

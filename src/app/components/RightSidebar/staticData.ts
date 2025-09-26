@@ -18,7 +18,7 @@ export const skillCategoryNames = [
     skillNames: [
       { name: "TypeScript", color: "text-blue-500" },
       { name: "JavaScript", color: "text-yellow-500" },
-      { name: "C#", color: "text-purple-600" }
+      { name: "C", color: "text-purple-600" }
     ]
   },
   {
@@ -29,7 +29,6 @@ export const skillCategoryNames = [
       { name: "Next.js", color: "text-gray-900" },
       { name: "Express.js", color: "text-gray-800" },
       { name: "Svelte", color: "text-red-500" },
-      { name: "ASP.NET Core", color: "text-purple-600" }
     ]
   },
   {
@@ -38,7 +37,8 @@ export const skillCategoryNames = [
     skillNames: [
       { name: "Docker", color: "text-blue-600" },
       { name: "Firebase", color: "text-red-500" },
-      { name: "Git", color: "text-red-500" }
+      { name: "Git", color: "text-red-500" },
+      { name: "AWS", color: "text-yellow-500" }
     ]
   },
   {
@@ -47,7 +47,6 @@ export const skillCategoryNames = [
     skillNames: [
       { name: "PostgreSQL", color: "text-blue-700" },
       { name: "MongoDB", color: "text-green-600" },
-      { name: "MySQL", color: "text-blue-500" }
     ]
   }
 ];
@@ -56,18 +55,18 @@ export const achievements = [
   {
     icon: "🏆",
     title: "Top Contributor",
-    bgColor: "bg-paleta-mediumBrown"
+    bgColor: "bg-paleta-accentGreen"
   },
   {
     icon: "🚀",
     title: "Fast Learner",
-    bgColor: "bg-paleta-darkBrown"
+    bgColor: "bg-paleta-white"
   },
   {
     icon: "🔧",
     title: "Problem Solver",
-    bgColor: "bg-paleta-darkestBrown",
-    textColor: "text-paleta-lightestBrown"
+    bgColor: "bg-paleta-lightGray",
+    textColor: "text-paleta-nearBlack"
   }
 ];
 
