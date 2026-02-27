@@ -14,13 +14,13 @@
 
 	<meta property="og:title" content="Vinicius Dal Bello | Full Stack Developer" />
 	<meta property="og:description" content="Full Stack Developer with 3+ years of experience in SvelteKit, React and Node.js. Check out my projects and experience." />
-	<meta property="og:image" content="/me-pp.jpeg" />
+	<meta property="og:image" content="/me-professional-photo.png" />
 	<meta property="og:type" content="website" />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content="Vinicius Dal Bello | Full Stack Developer" />
 	<meta name="twitter:description" content="Full Stack Developer with 3+ years of experience in SvelteKit, React and Node.js. Check out my projects and experience." />
-	<meta name="twitter:image" content="/me-pp.jpeg" />
+	<meta name="twitter:image" content="/me-professional-photo.png" />
 </svelte:head>
 
 <Navbar />
