@@ -6,7 +6,7 @@
 <section id="hero" class="relative min-h-screen flex items-center pt-16 overflow-hidden">
 	<div
 		class="absolute inset-0 md:hidden bg-cover bg-center bg-no-repeat"
-		style="background-image: url('/me-pp.jpeg'); background-position: center 20%;"
+		style="background-image: url('/me-professional-photo.png'); background-position: center 20%;"
 	></div>
 	<div class="absolute inset-0 md:hidden bg-gradient-to-b from-dark-950/70 via-dark-950/80 to-dark-950"></div>
 
@@ -55,7 +55,7 @@
 					<div class="relative">
 						<div class="w-64 lg:w-96 h-64 lg:h-96 rounded-full overflow-hidden border-2 border-mint-500/30 ring-4 ring-mint-500/10 ring-offset-4 ring-offset-dark-950">
 							<img
-								src="/me-pp.jpeg"
+								src="/me-professional-photo.png"
 								alt="Vinicius Dal Bello"
 								class="w-full h-full object-cover scale-125"
 								style="object-position: center 70%;"
