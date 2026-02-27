@@ -58,7 +58,7 @@
 								src="/me-professional-photo.png"
 								alt="Vinicius Dal Bello"
 								class="w-full h-full object-cover scale-125"
-								style="object-position: center 70%;"
+								style="object-position: center 40%;"
 							/>
 						</div>
 					</div>
