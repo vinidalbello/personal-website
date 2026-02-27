@@ -26,5 +26,5 @@ vite.config.ts.timestamp-*
 .idea/
 
 # Private
-resume/
+/resume/
 CLAUDE.md
