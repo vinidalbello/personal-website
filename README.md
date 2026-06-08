@@ -1,42 +1,63 @@
-# sv
+# Vinicius Dal Bello — Personal Website
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Personal portfolio website showcasing my experience, projects, and skills as a Full Stack Developer. Built with a dark theme and mint accent color.
 
-## Creating a project
+**Live:** [viniciusdalbello.dev](https://viniciusdalbello.dev) *(update with your Netlify URL if different)*
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
 
-```sh
-# create a new project
-npx sv create my-app
-```
+## Tech Stack
 
-To recreate this project with the same configuration:
+- **Framework:** SvelteKit 2 + Svelte 5
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Fonts:** Inter + JetBrains Mono (Google Fonts)
+- **Deploy:** Netlify (via `@sveltejs/adapter-netlify`)
 
-```sh
-# recreate this project
-npx sv create --template minimal --types ts --no-install .
-```
+## Features
 
-## Developing
+- Responsive single-page layout with smooth scroll navigation
+- Scroll-reveal animations on section entry
+- Hero section with profile photo and CV download
+- Work experience timeline
+- Projects showcase with tech badges and GitHub links
+- Skills grid organized by category
+- Contact section with social links
+- Open Graph meta tags for social media previews
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Getting Started
 
-```sh
+```bash
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+# Type-check
+npm run check
 ```
 
-## Building
+## Build & Deploy
 
-To create a production version of your app:
-
-```sh
+```bash
+# Production build
 npm run build
+
+# Preview production build locally
+npm run preview
 ```
 
-You can preview the production build with `npm run preview`.
+Netlify picks up the `netlify.toml` config automatically on push to `main`.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## Project Structure
+
+```
+src/
+├── lib/
+│   ├── components/   # Svelte UI components
+│   ├── data/         # Static data (experience, projects, skills)
+│   └── types/        # TypeScript interfaces
+└── routes/           # SvelteKit pages and layout
+static/               # Static assets (images, resume PDF, robots.txt)
+```
